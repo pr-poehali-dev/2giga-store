@@ -537,7 +537,7 @@ export default function Index() {
 
                 <Card className="p-0 overflow-hidden">
                   <img 
-                    src="https://cdn.poehali.dev/files/image.png" 
+                    src="https://cdn.poehali.dev/files/Screenshot_1.png" 
                     alt="Карта расположения магазина 2giga" 
                     className="w-full h-64 object-cover"
                   />
