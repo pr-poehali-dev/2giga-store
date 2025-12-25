@@ -41,6 +41,22 @@ type Article = {
   category: string;
 };
 
+const ProductImage = ({ type }: { type: string }) => {
+  const iconMap: { [key: string]: string } = {
+    cpu: 'Cpu',
+    gpu: 'MonitorUp',
+    ram: 'MemoryStick',
+    motherboard: 'Microchip',
+    ssd: 'HardDrive'
+  };
+  
+  return (
+    <div className="flex items-center justify-center h-24 mb-4 bg-muted/30 rounded-lg">
+      <Icon name={iconMap[type] || 'Package'} size={48} className="text-primary" />
+    </div>
+  );
+};
+
 const products: Product[] = [
   {
     id: 1,
@@ -48,7 +64,7 @@ const products: Product[] = [
     category: 'cpu',
     price: 54990,
     specs: { brand: 'Intel', cores: 24, frequency: '3.0 - 5.8 ГГц' },
-    image: '🔲'
+    image: 'cpu'
   },
   {
     id: 2,
@@ -56,7 +72,7 @@ const products: Product[] = [
     category: 'cpu',
     price: 49990,
     specs: { brand: 'AMD', cores: 16, frequency: '4.5 - 5.7 ГГц' },
-    image: '🔲'
+    image: 'cpu'
   },
   {
     id: 3,
@@ -64,7 +80,7 @@ const products: Product[] = [
     category: 'gpu',
     price: 189990,
     specs: { brand: 'NVIDIA', memory: '24 ГБ GDDR6X' },
-    image: '🔲'
+    image: 'gpu'
   },
   {
     id: 4,
@@ -72,7 +88,7 @@ const products: Product[] = [
     category: 'gpu',
     price: 99990,
     specs: { brand: 'AMD', memory: '24 ГБ GDDR6' },
-    image: '🔲'
+    image: 'gpu'
   },
   {
     id: 5,
@@ -80,7 +96,7 @@ const products: Product[] = [
     category: 'ram',
     price: 12990,
     specs: { brand: 'Kingston', capacity: '32 ГБ', speed: '6000 МГц' },
-    image: '🔲'
+    image: 'ram'
   },
   {
     id: 6,
@@ -88,7 +104,7 @@ const products: Product[] = [
     category: 'motherboard',
     price: 34990,
     specs: { brand: 'ASUS', interface: 'LGA1700' },
-    image: '🔲'
+    image: 'motherboard'
   },
   {
     id: 7,
@@ -96,7 +112,7 @@ const products: Product[] = [
     category: 'ssd',
     price: 15990,
     specs: { brand: 'Samsung', capacity: '2 ТБ', speed: '7450 МБ/с' },
-    image: '🔲'
+    image: 'ssd'
   },
   {
     id: 8,
@@ -104,7 +120,7 @@ const products: Product[] = [
     category: 'ssd',
     price: 9990,
     specs: { brand: 'Western Digital', capacity: '1 ТБ', speed: '7300 МБ/с' },
-    image: '🔲'
+    image: 'ssd'
   }
 ];
 
@@ -286,7 +302,7 @@ export default function Index() {
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {filteredProducts.map(product => (
                   <Card key={product.id} className="p-6 hover:shadow-lg transition-all hover-scale">
-                    <div className="text-6xl mb-4 text-center">{product.image}</div>
+                    <ProductImage type={product.image} />
                     <Badge className="mb-2">{categoryNames[product.category]}</Badge>
                     <h3 className="font-bold text-lg mb-2">{product.name}</h3>
                     <div className="text-sm text-muted-foreground mb-4 space-y-1">
