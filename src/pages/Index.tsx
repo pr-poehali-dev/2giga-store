@@ -535,13 +535,12 @@ export default function Index() {
                   </div>
                 </Card>
 
-                <Card className="p-6 bg-muted">
-                  <div className="flex items-center justify-center h-48 text-muted-foreground">
-                    <div className="text-center">
-                      <Icon name="Map" size={48} className="mx-auto mb-2" />
-                      <p className="text-sm">Карта магазина</p>
-                    </div>
-                  </div>
+                <Card className="p-0 overflow-hidden">
+                  <img 
+                    src="https://cdn.poehali.dev/files/image.png" 
+                    alt="Карта расположения магазина 2giga" 
+                    className="w-full h-64 object-cover"
+                  />
                 </Card>
               </div>
             </div>
